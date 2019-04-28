@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const { authenticate } = require('../auth/authenticate');
 const myTokens = require('../auth/myTokens')
 const Users = require('./users-module');
-const Verbs = require('./verbConjugations-module');
+const Verbs = require('./verbConjugations_module');
 
 module.exports = server => {
   server.post('/api/register', register);
