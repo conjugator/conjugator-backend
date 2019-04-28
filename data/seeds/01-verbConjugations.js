@@ -1,27 +1,56 @@
-const array = require('../beginnerData.js')
 
-console.log(slicedArray.length)
+const verbsDateJs = require('../seedingData.js');
 
-exports.seed = function(knex, Promise) {
-  return knex('verbConjugations')
-  // .del()
-  .then(function() {
-    // Inserts seed entries
-    return () => {
-      let slicedArray = [];
-      for (let i = 0; i < array.length; i++) {
-          if (i === 50*i){
-            knex('verbConjugations').insert(slicedArray);
-            slicedArray = [];
-          }
-          else {
-            console.log(slicedArray.length)
-            slicedArray.push(array[i])
-          }
-        }
-      };
-    });
+let counter = 0;
+let slicedArray = [];
+
+exports.seed = async function(knex, Promise) {
+  // Deletes ALL existing entries
+  await knex('verbConjugations').truncate();
+  for(let i=0; i < verbsDateJs.length; i++ ){
+    if (counter === 50){
+      await knex('verbConjugations').insert(slicedArray);
+      counter = 0;
+      slicedArray = [];
+    }
+    if(i === 11450){
+      // console.log("I hate knex")
+      slicedArray.push(verbsDateJs.slice(11450))
+      await knex('verbConjugations').insert(slicedArray);
+    }
+    else {
+      slicedArray.push(verbsDateJs[i])
+      counter++
+    }
+  }
 };
+
+
+// const array = require('../beginnerData.js')
+
+// exports.seed = function(knex, Promise) {
+//   return knex('verbConjugations')
+//   // .del()
+//   .then(function() {
+//     // Inserts seed entries
+//     return async () => {
+//       let slicedArray = [];
+//       let counter = 0;
+
+//       for (let i = 0; i < array.length; i++) {
+//           if (counter === 50){
+//             console.log(slicedArray)
+//             await knex('verbConjugations').insert(slicedArray);
+//             counter = 0;
+//             slicedArray = [];
+//           }
+//           else {
+//             slicedArray.push(array[i])
+//           }
+//         }
+//       };
+//     });
+// };
 
 
 
