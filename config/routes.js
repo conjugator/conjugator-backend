@@ -11,7 +11,7 @@ module.exports = server => {
   server.post('/api/login', login);
   server.get('/api/conjugator', authenticate, getVerbs);
 
-  server.get('/api/dashboard', authenticare);
+  server.get('/api/dashboard', authenticate);
 };
 
 // AUTHENTICATION
