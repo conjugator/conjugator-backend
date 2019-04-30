@@ -56,8 +56,9 @@ function getVerbs(req, res) {
     headers: { accept: 'application/json' },
   };
 
-  axios
-    .get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', requestOptions) //end point will be heroku deployment
+  // axios
+    Verbs.get()
+    // .get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', requestOptions) //end point will be heroku deployment
     .then(response => {
       res.status(200).json(response.data.results);
     })
