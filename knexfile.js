@@ -1,4 +1,7 @@
 // Update with your config settings.
+require("dotenv").config();
+const pg = require('pg');
+pg.default.ssl = true;
 
 module.exports = {
 
@@ -32,12 +35,14 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: 'postgres://localhost/verbs',
+    connection: process.event.DATABASE_URL,
+    pool: {
+      min: 2,
+      max: 10
+    }
     migrations: {
-      directory: './data/migrations'
-    },
-    seeds: {
-    directory: './data/seeds'
+      directory: './data/migrations',
+      tableName: 'knex_migrations'
     }
   },
 };

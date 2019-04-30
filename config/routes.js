@@ -2,7 +2,7 @@ const axios = require('axios');
 const bcrypt = require('bcryptjs');
 
 const { authenticate } = require('../auth/authenticate');
-const myTokens = require('../auth/myTokens')
+const myTokens = require('../auth/myTokens');
 const Users = require('./users-module');
 const Verbs = require('./verbConjugations_module');
 
