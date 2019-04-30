@@ -57,7 +57,7 @@ function getVerbs(req, res) {
   };
 
   axios
-    .get('https://icanhazdadjoke.com/search', requestOptions) //end point will be heroku deployment
+    .get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', requestOptions) //end point will be heroku deployment
     .then(response => {
       res.status(200).json(response.data.results);
     })
