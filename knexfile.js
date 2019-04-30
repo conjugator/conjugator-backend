@@ -35,7 +35,7 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: process.event.DATABASE_URL,
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10
