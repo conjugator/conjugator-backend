@@ -5,5 +5,5 @@ module.exports = {
 };
 
 function get() {
-  return db('verbs');
+  return db('verbConjugations');
 }

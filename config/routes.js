@@ -10,8 +10,6 @@ module.exports = server => {
   server.post('/api/register', register);
   server.post('/api/login', login);
   server.get('/api/conjugator', authenticate, getVerbs);
-
-  // server.get('/api/dashboard', authenticate);
 };
 
 // AUTHENTICATION
@@ -60,7 +58,7 @@ function getVerbs(req, res) {
     Verbs.get()
     // .get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', requestOptions) //end point will be heroku deployment
     .then(response => {
-      res.status(200).json(response.data.results);
+      res.status(200).json(response);
     })
     .catch(err => {
       res.status(500).json({ message: 'Error Fetching Account Data', error: err });
