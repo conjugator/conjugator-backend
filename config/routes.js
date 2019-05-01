@@ -49,14 +49,14 @@ function login(req, res) {
     });
 };
 
+// VERB CONJUGATIONS
+
 function getVerbs(req, res) {
   const requestOptions = {
     headers: { accept: 'application/json' },
   };
 
-  // axios
     Verbs.get()
-    // .get('https://glacial-hamlet-47910.herokuapp.com/api/conjugator', requestOptions) //end point will be heroku deployment
     .then(response => {
       res.status(200).json(response);
     })
