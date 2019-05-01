@@ -3,13 +3,6 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('verbConjugations', table => {
     table.increments();
 
-    table.integer('user_id')
-      .unsigned()
-      .references('id')
-      .inTable('users')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE')
-
     table.string("infinitive", 128);
     table.string("infinitive_english", 128);
     table.string("mood", 128);

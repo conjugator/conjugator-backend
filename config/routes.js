@@ -38,7 +38,7 @@ function login(req, res) {
       if(user && bcrypt.compareSync(password, user.password)) {
         const token = myTokens.generateToken(user);
 
-        res.status(200).json({ message: `Welcome ${user.username} to My Daily Dad Joke`, your_token: token });
+        res.status(200).json({ message: `Welcome ${user.username}`, your_token: token });
       }
       else {
         res.status(401).json({ message: 'Invalid Credentials, Please Try Again.' });
