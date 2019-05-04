@@ -25,7 +25,7 @@ function register(req, res) {
       res.status(201).json(registered);
     })
     .catch(error => {
-      res.status(500).json(error);
+      res.status(500).json({message: "Error, please enter an unique username."});
     });
 };
 
